@@ -1,0 +1,41 @@
+﻿@model IEnumerable<votingmanagementsystem.Models.Partymodel>
+
+<p>
+    @Html.ActionLink("Add New Party", "AddParty")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.party_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.party_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.party_logo)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.party_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.party_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.party_logo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditParty", new { id = item.party_id }) |
+                @Html.ActionLink("Delete", "DeleteParty", new { id = item.party_id }, new { onclick = "return confirm('Are sure wants to delete?');" })
+            </td>
+        </tr>
+
+    }
+
+</table>

@@ -1,0 +1,49 @@
+﻿
+@model IEnumerable<votingmanagementsystem.Models.Constituencymodel>
+
+<p>
+    @Html.ActionLink("Add New Constituency", "AddConstituency")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.constituent_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.constituent_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.election_id)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.constituent_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.constituent_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.election_id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditConstituency", new { id = item.constituent_id }) |
+                @Html.ActionLink("Delete", "DeleteConstituency", new { id = item.constituent_id }, new { onclick = "return confirm('Are sure wants to delete?');" })
+            </td>
+        </tr>
+
+    }
+
+</table>
